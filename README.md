@@ -2,7 +2,7 @@
 You have a web application that accepts requests from the internet. Clients can send requests to query for data. When a request comes in, the web application queries a MySQL database and returns the data to the client.
 
 
-# Three-Tier Web Application Architecture on AWS
+# Document Purpose
 
 This repository documents the design and implementation of a three-tier web application architecture using AWS services. The architecture ensures high availability, scalability, and security for a web application that accepts internet requests, queries a MySQL database, and returns data to clients.
 
