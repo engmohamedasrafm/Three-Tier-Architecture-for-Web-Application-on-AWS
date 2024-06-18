@@ -48,5 +48,5 @@ This repository documents the design and implementation of a three-tier web appl
 
 ### Contact
 
-For any questions or support, please contact [Your Name] at [your-email@example.com].
+For any questions or support, please contact Mohamed Ashraf at eng.mohamedashrafm@gmail.com
 
