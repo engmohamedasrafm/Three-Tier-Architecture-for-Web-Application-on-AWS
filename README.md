@@ -8,8 +8,21 @@ This repository documents the design and implementation of a three-tier web appl
 
 ## Architecture Overview
 
-![Three-Tier Architecture Diagram](https://i.imgur.com/T4cEjKr.png)
+The clients can connect to the web application through the Internet Gateway attached to the VPC. The requests are received by the ELB that distributes traffic to EC2 Instances hosted on different Availability Zones. The web facing EC2 instances are under Public Subnet.
 
+The Auto Scaling Groups attached to the instances manages the scaling based on the rise and fall of internet traffic. The security of the Public Subnet is controlled by the Security Group attached to it. This security group allows traffic only from the Internet Gateway.
+
+The EC2 instances in turn communicates with the MySQL Databases hosted on different Availability Zones and shares the response back to the client through the same channel.
+
+The MySQL databases are under a Private Subnet away from direct internet access.
+
+The Auto Scaling Groups attached to the database manages the scaling based on the rise and fall of EC2 traffic.
+
+The security of the Private Subnet is controlled by the Security Group attached to it. This security group allows traffic only from the security group of the EC2 instances.
+
+The instances are placed under 2 Availability Zones configured with in the VPC for high availability and the VPS is under single Region.
+
+The Internet Gateway and Application Load Balancer is scalable and highly available by design. Hence, they can automatically scale base on the web traffic coming in to the solution.
 ### Components
 
 1. **Networking Layer**
